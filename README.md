@@ -15,3 +15,6 @@
 ---
 ## License/uses
 #### Rules and License will also be talked about [here](https://github.com/JBYT27/BHTML-Compiler/blob/master/Rules.md)
+--- 
+## Current functions
+#### This is discussed [here](https://github.com/JBYT27/BHTML-Compiler/blob/master/Details.md)
