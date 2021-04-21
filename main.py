@@ -97,27 +97,7 @@ def pTAG():
       res = lines.partition(wrd)[2]
       res = res.replace('</p>', '')
       #res = res.replace(' ', '')
-      res = res.replace('{getChar1}', getChar1)
-      res = res.replace('{getChar2}', getChar2)
-      res = res.replace('{getChar3}', getChar3)
-      res = res.replace("{{input1}}", input1)
-      res = res.replace("{{input2}}", input2)
-      res = res.replace("{{input3}}", input3)
-      res = res.replace("{{var1}}", var1)
-
-      if "{{" in res:
-        if "}}" in res:
-          start = "{{"
-          end = "}}"
-          check = res[res.find(start) + len(start):res.rfind(end)]
-          
-          if check in allvars:
-            res = res.replace('{{','')
-            res = res.replace('}}','')
-            e = allvars[check]
-            res = res.replace(check, str(e))
-          else:
-            exit()#add error
+     
       
       split_string = res.split("</p>", -1)
       res = split_string[0]
