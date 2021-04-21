@@ -11,7 +11,7 @@
 --- 
 
 ## Contributing
-#### Contributing will be talked about [here]()
+#### Contributing will be talked about [here](https://github.com/JBYT27/BHTML-Compiler/blob/master/Contributing.md)
 ---
 ## License/uses
-#### Rules and License will also be talked about [here]()
+#### Rules and License will also be talked about [here](https://github.com/JBYT27/BHTML-Compiler/blob/master/Rules.md)
