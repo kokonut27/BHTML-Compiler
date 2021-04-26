@@ -11,10 +11,10 @@
 --- 
 
 ## Contributing
-#### Contributing will be talked about [here](https://github.com/JBYT27/BHTML-Compiler/blob/master/Contributing.md)
+#### Contributing will be talked about [here](https://github.com/JBYT27/BHTML-Compiler/blob/master/README's/Contributing.md)
 ---
 ## License/uses
-#### Rules and License will also be talked about [here](https://github.com/JBYT27/BHTML-Compiler/blob/master/Rules.md)
+#### Rules and License will also be talked about [here](https://github.com/JBYT27/BHTML-Compiler/blob/master/README's/Rules.md)
 --- 
 ## Current functions
-#### This is discussed [here](https://github.com/JBYT27/BHTML-Compiler/blob/master/Details.md)
+#### This is discussed [here](https://github.com/JBYT27/BHTML-Compiler/blob/master/README's/Details.md)
