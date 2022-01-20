@@ -71,16 +71,9 @@ def parse(file):
 
   def docTAG():
     try:
-      if '<!DOCTYPE bhtml>' in lines:#this way is more recommended
+      if ('<!DOCTYPE bhtml>' in lines or '<!doctype bhtml>' in lines
+          or '<!doctype BHTML>' in lines or '<!DOCTYPE BHTML>' in lines):#this way is more recommended
         bhtmldoc = True
-      elif '<!doctype bhtml>' in lines:
-        bhtmldoc = True
-      elif '<!doctype BHTML>' in lines:
-        bhtmldoc = True
-      elif '<!DOCTYPE BHTML>' in lines:
-        bhtmldoc = True
-      else:
-        pass
     except:
       pass
 
@@ -88,71 +81,63 @@ def parse(file):
     try:
       #lines = lines.replace(' ','') PUT DELETE SPACES FUNCTION HERE
       if ('<a href = "' in lines):
-          wrd = '<a href = "'
-          res = lines.partition(wrd)[2]
-          split_string = res.split("\">", 1)
-          res = split_string[0]
-          print(res) # been doing too much js
-          #print(lines)
-          os.system(f"touch {res}.bhtml") # creates file
-          ee = lines.partition(f'<a href = "{res}">')
-          f = ee[2]
-          f = str(f)
-          f = f.replace('</a>','')
-          #print(f)
+        wrd = '<a href = "'
+        res = lines.partition(wrd)[2]
+        split_string = res.split("\">", 1)
+        res = split_string[0]
+        print(res) # been doing too much js
+        #print(lines)
+        os.system(f"touch {res}.bhtml") # creates file
+        ee = lines.partition(f'<a href = "{res}">')
+        f = ee[2]
+        f = str(f)
+        f = f.replace('</a>','')
+        #print(f)
          # try:
-          
-          
-          #except:
-           # raise Exception("ERROR")
-          print("BEFORE")
-          print(res)
-          #parse(f"{res}.bhtml")
-          print("AFTER")
-          # code here, it means it passed with href tag
-      elif ('<a id = "'):
-        pass
-      
-      else:
-        pass
+
+
+        #except:
+         # raise Exception("ERROR")
+        print("BEFORE")
+        print(res)
+        #parse(f"{res}.bhtml")
+        print("AFTER")
+        # code here, it means it passed with href tag
     except:
       raise Exception("ERROR")
 
   def pTAG():
     try:
-        if '</p>' in lines:#maybe replace </p> with </>?
-          wrd = '<p>'
-          res = lines.partition(wrd)[2]
-          res = res.replace('</p>', '')
-          #res = res.replace(' ', '')
-          res = res.replace('{getChar1}', getChar1)
-          res = res.replace('{getChar2}', getChar2)
-          res = res.replace('{getChar3}', getChar3)
-          res = res.replace("{{input1}}", input1)
-          res = res.replace("{{input2}}", input2)
-          res = res.replace("{{input3}}", input3)
-          res = res.replace("{{var1}}", var1)
+      if '</p>' in lines:#maybe replace </p> with </>?
+        wrd = '<p>'
+        res = lines.partition(wrd)[2]
+        res = res.replace('</p>', '')
+        #res = res.replace(' ', '')
+        res = res.replace('{getChar1}', getChar1)
+        res = res.replace('{getChar2}', getChar2)
+        res = res.replace('{getChar3}', getChar3)
+        res = res.replace("{{input1}}", input1)
+        res = res.replace("{{input2}}", input2)
+        res = res.replace("{{input3}}", input3)
+        res = res.replace("{{var1}}", var1)
 
-          if "{{" in res:
-            if "}}" in res:
-              start = "{{"
-              end = "}}"
-              check = res[res.find(start) + len(start):res.rfind(end)]
-              
-              if check in allvars:
-                res = res.replace('{{','')
-                res = res.replace('}}','')
-                e = allvars[check]
-                res = res.replace(check, str(e))
-              else:
-                exit()#add error
+        if "{{" in res and "}}" in res:
+          start = "{{"
+          end = "}}"
+          check = res[res.find(start) + len(start):res.rfind(end)]
 
-          wait_until("</p>", 0)
-          split_string = res.split("</p>", -1)
-          res = split_string[0]
-          print(res)
-        else:
-          pass
+          if check in allvars:
+            res = res.replace('{{','')
+            res = res.replace('}}','')
+            e = allvars[check]
+            res = res.replace(check, str(e))
+          else:
+            exit()#add error
+
+        wait_until("</p>", 0)
+        split_string = res.split("</p>", -1)
+        res = split_string[0]
+        print(res)
     except:
       raise Exception("ERROR")
 
